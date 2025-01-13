@@ -6,6 +6,16 @@ networks:
     driver: bridge
 
 services:
+  # jenkins环境
+  # 密码位置：/var/jenkins_home/secrets/initialAdminPassword
+  jenkins:
+    image: jenkinsci/blueocean
+    container_name: jenkins
+    ports:
+      -  "18080:8080"
+    volumes:
+      - "/docker-env/jenkins/data:/var/jenkins_home"
+      - "/var/run/docker.sock:/var/run/docker.sock"
  #mysql环境# https://github.com/bitnami/containers/tree/main/bitnami/mysql#how-to-use-this-image
   mysql:
     image: bitnami/mysql:8.0
