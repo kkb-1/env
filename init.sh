@@ -9,6 +9,6 @@ sudo rm -rf /docker-env/redis ; sudo mkdir -p /docker-env/redis/conf /docker-env
 # etcd
 sudo rm -rf /docker-env/etcd ; sudo mkdir -p /docker-env/etcd/data /docker-env/etcd/conf && sudo chown -R 1001:1001 /docker-env/etcd \
 # kafka
-sudo rm -rf /docker-env/kafka ; sudo mkdir -p /docker-env/kafka/conf /docker-env/kafka/data && sudo chown -R 1001:1001 /kafka/redis \
+sudo rm -rf /docker-env/kafka ; sudo mkdir -p /docker-env/kafka/conf /docker-env/kafka/data && sudo chown -R 1001:1001 /kafka/ \
 
 echo "init finish"

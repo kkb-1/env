@@ -9,7 +9,7 @@ services:
  #mysql环境# https://github.com/bitnami/containers/tree/main/bitnami/mysql#how-to-use-this-image
   mysql:
     image: bitnami/mysql:8.0
-    container_name: mysql
+    container_name: test-mysql
     hostname: mysql
     privileged: true
     ports:
@@ -33,7 +33,7 @@ services:
   etcd:
     hostname: etcd
     image: bitnami/etcd:3.5
-    container_name: etcd
+    container_name: test-etcd
     privileged: true
     volumes:
       - "/docker-env/etcd/data:/bitnami/etcd/data"
@@ -59,7 +59,7 @@ services:
   etcdkeeper:
     hostname: etcdkeeper
     image: evildecay/etcdkeeper:v0.7.6
-    container_name: etcdkeeper
+    container_name: test-etcdkeeper
     ports:
       - "8099:8080"
     environment:
@@ -75,7 +75,7 @@ services:
  #redis环境 # https://github.com/bitnami/containers/tree/main/bitnami/redis
   redis:
     image: bitnami/redis:7.0
-    container_name: redis
+    container_name: test-redis
     hostname: redis
     privileged: true
     environment:
@@ -90,7 +90,9 @@ services:
 
  # kafka环境(单机) # https://github.com/bitnami/containers/tree/main/bitnami/kafka
   kafka:
-    image: docker.io/bitnami/kafka:3.9
+    image: bitnami/kafka:3.9
+    container_name: test-kafka
+    hostname: kafka
     ports:
       - "9092:9092"
     environment:
@@ -103,3 +105,5 @@ services:
     volumes:
       - "/docker-env/kafka/data:/bitnami/kafka/data"
       - "/docker-env/kafka/conf:/opt/bitnami/kafka/conf"
+    networks:
+      - test
